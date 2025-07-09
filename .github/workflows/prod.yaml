@@ -8,16 +8,20 @@ on:
     branches:
       - main
 
-job:
-  # Deploy:
-   # runon: ubantu-latest
-    #steps:
-     # - uses: actions/checkout@v4
-      #- name: intall vercal cli
-      #  run: npm i vercel -g
-      #- name: Pull evn information
-      #  run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      #- name: Build Artifcats
-      #  run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      #- name: deploy Artifacts
-       # run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+jobs:
+   Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: intall vercal cli
+        run: npm i vercel -g
+
+      - name: Pull evn information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Artifcats
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: deploy Artifacts
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
