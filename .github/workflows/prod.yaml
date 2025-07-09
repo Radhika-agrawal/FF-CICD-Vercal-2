@@ -20,8 +20,8 @@ jobs:
       - name: Pull env information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      #- name: Build Artifacts
+      #  run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy artifacts
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
