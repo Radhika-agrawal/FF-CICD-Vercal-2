@@ -14,14 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: intall vercal cli
+      - name: intall vercel cli
         run: npm i vercel -g
 
-      - name: Pull evn information
+      - name: Pull env information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Artifcats
+      - name: Build Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: deploy Artifacts
+      - name: Deploy artifacts
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
